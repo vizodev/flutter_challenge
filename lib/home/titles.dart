@@ -28,27 +28,29 @@ class _TitlePageState extends State<TitlePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text("Hello",
-                style: TextStyle(
-                  fontSize: 25.0,
-                  color: textColor,
-                )),
+            Text(""),
+            Text(
+              "Hello,",
+              style: TextStyle(
+                fontSize: 20.0,
+                color: textColor,
+              ),
+            ),
             Text(
               "Lorelle luna",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 50.0,
+                fontSize: 35.0,
                 color: textColor,
               ),
             ),
-            Text(""),
             Text(""),
             Text(""),
             Text(
               "Specialist",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 25.0,
+                fontSize: 18.0,
                 color: textColor,
               ),
             ),

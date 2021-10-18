@@ -26,7 +26,7 @@ class _CategorySelectorState extends State<CategorySelector> {
   Widget build(BuildContext context) {
     // Category selector
     return Container(
-      height: 220.0,
+      height: 180.0,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: _categories.length,
@@ -36,72 +36,70 @@ class _CategorySelectorState extends State<CategorySelector> {
             String imag = category.imageUrl.toString();
 
             return GestureDetector(
-              child: Container(
-                width: 160.0,
-                padding: EdgeInsets.all(10.0),
-                margin: EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                  color: HexColor(category.color ?? "#E5495E"),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 7,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
+                child: Container(
+                  width: 130.0,
+                  padding: EdgeInsets.all(10.0),
+                  margin: EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                      color: HexColor(category.color ?? "#E5495E"),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 7,
+                          offset: Offset(0, 3),
+                        ),
+                      ]),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(8.0),
+                          margin: new EdgeInsets.only(bottom: 20.0),
+                          width: 50.0,
+                          height: 55.0,
+                          child: SvgPicture.network(
+                            imag,
+                            placeholderBuilder: (context) =>
+                                CircularProgressIndicator(),
+                            height: 50.0,
+                            color: HexColor(category.color ?? "#E5495E"),
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15.0)),
+                            color: Colors.white,
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          category.name ?? "fffff",
+                          maxLines: 2,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 17.0,
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          total,
+                          style: TextStyle(color: Colors.white, fontSize: 13.0),
+                        ),
+                        Spacer(
+                          flex: 5,
+                        ),
+                      ]),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(8.0),
-                      margin: new EdgeInsets.only(bottom: 20.0),
-                      width: 70.0,
-                      height: 70.0,
-                      child: SvgPicture.network(
-                        imag,
-                        placeholderBuilder: (context) =>
-                            CircularProgressIndicator(),
-                        height: 128.0,
-                        color: HexColor(category.color ?? "#E5495E"),
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(18.0)),
-                        color: Colors.white,
-                      ),
-                    ),
-                    Spacer(),
-                    Text(
-                      category.name ?? "fffff",
-                      maxLines: 2,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 24.0,
-                      ),
-                    ),
-                    Spacer(),
-                    Text(
-                      total,
-                      style: TextStyle(color: Colors.white, fontSize: 15.0),
-                    ),
-                    Spacer(
-                      flex: 5,
-                    ),
-                  ],
-                ),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          SpecialistsSelector(data: category.name)),
-                );
-              },
-            );
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            SpecialistsSelector(data: category.name)),
+                  );
+                });
           }),
     );
   }
