@@ -56,17 +56,16 @@ class _CategorySelectorState extends State<CategorySelector> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
+                      padding: const EdgeInsets.all(8.0),
+                      margin: new EdgeInsets.only(bottom: 20.0),
                       width: 70.0,
                       height: 70.0,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SvgPicture.network(
-                          imag,
-                          placeholderBuilder: (context) =>
-                              CircularProgressIndicator(),
-                          height: 128.0,
-                          color: HexColor(category.color ?? "#E5495E"),
-                        ),
+                      child: SvgPicture.network(
+                        imag,
+                        placeholderBuilder: (context) =>
+                            CircularProgressIndicator(),
+                        height: 128.0,
+                        color: HexColor(category.color ?? "#E5495E"),
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(18.0)),

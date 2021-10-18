@@ -9,6 +9,7 @@ class TitlePage extends StatefulWidget {
 
 class _TitlePageState extends State<TitlePage> {
   // late bool _loading;
+
   @override
   void initState() {
     super.initState();
@@ -18,6 +19,8 @@ class _TitlePageState extends State<TitlePage> {
   }
 
   Widget build(BuildContext context) {
+    var textColor = Color.fromRGBO(80, 76, 76, 1);
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Align(
@@ -25,17 +28,29 @@ class _TitlePageState extends State<TitlePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text("Hello", style: TextStyle(fontSize: 25.0)),
+            Text("Hello",
+                style: TextStyle(
+                  fontSize: 25.0,
+                  color: textColor,
+                )),
             Text(
               "Lorelle luna",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50.0),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 50.0,
+                color: textColor,
+              ),
             ),
             Text(""),
             Text(""),
             Text(""),
             Text(
-              "spatialist",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0),
+              "Specialist",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 25.0,
+                color: textColor,
+              ),
             ),
           ],
         ),

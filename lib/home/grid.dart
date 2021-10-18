@@ -28,6 +28,8 @@ class _NeedsState extends State<Needs> {
 
   @override
   Widget build(BuildContext context) {
+    var textColor = Color.fromRGBO(80, 76, 76, 1);
+
     return Expanded(
       child: Column(
         children: [
@@ -98,10 +100,16 @@ class _NeedsState extends State<Needs> {
                                 placeholderBuilder: (context) =>
                                     CircularProgressIndicator(),
                                 height: 128.0,
-                                color: Colors.amber,
                               ),
                             ),
-                            Text(list.name.toString()),
+                            Text(
+                              list.name.toString(),
+                              style: TextStyle(
+                                // fontWeight: FontWeight.bold,
+                                fontSize: 16.0,
+                                color: textColor,
+                              ),
+                            ),
                           ],
                         ),
                       ),
