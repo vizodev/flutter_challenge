@@ -18,12 +18,24 @@ class _NeedsState extends State<Needs> {
   int selected = -1;
   List<AddIcons> listIcons = [
     AddIcons(
-        name: "Diagnostic", icon: "assets\ambulance-transport-svgrepo-com.svg"),
-    AddIcons(name: "Consulatoin", icon: "assets\icons\nurse.svg"),
-    AddIcons(name: "Nurse", icon: "assets\icons\nurse.svg"),
-    AddIcons(name: "Ambulance", icon: "assets\icons\nurse.svg"),
-    AddIcons(name: "Lab Work", icon: "assets\icons\nurse.svg"),
-    AddIcons(name: "Medicine", icon: "assets\icons\nurse.svg"),
+        name: "Diagnostic",
+        icon: "https://www.svgrepo.com/show/142962/stethoscope.svg"),
+    AddIcons(
+        name: "Consulatoin",
+        icon:
+            "https://www.svgrepo.com/show/119186/person-with-headset-thin-outline-symbol-in-a-circle.svg"),
+    AddIcons(
+        name: "Nurse", icon: "https://www.svgrepo.com/show/295869/nurse.svg"),
+    AddIcons(
+        name: "Ambulance",
+        icon: "https://www.svgrepo.com/show/105740/ambulance.svg"),
+    AddIcons(
+        name: "Lab Work",
+        icon:
+            "https://www.svgrepo.com/show/338091/erlenmeyer-laboratory-lab-experiment-flask-science-medical.svg"),
+    AddIcons(
+        name: "Medicine",
+        icon: "https://www.svgrepo.com/show/106386/medicine.svg"),
   ];
 
   @override
@@ -91,12 +103,15 @@ class _NeedsState extends State<Needs> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            padding: const EdgeInsets.all(18.0),
-                            child: SvgPicture.asset(
+                            height: 70.0,
+                            padding: const EdgeInsets.all(15.0),
+                            child: SvgPicture.network(
                               list.icon.toString(),
                               placeholderBuilder: (context) =>
                                   CircularProgressIndicator(),
                               height: 128.0,
+                              color:
+                                  selected == index ? Colors.white : textColor,
                             ),
                           ),
                           Text(
