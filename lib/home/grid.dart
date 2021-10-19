@@ -45,7 +45,7 @@ class _NeedsState extends State<Needs> {
     return Expanded(
       child: Column(children: [
         Padding(
-          padding: const EdgeInsets.all(14.0),
+          padding: const EdgeInsets.all(15.0),
           child: Align(
             heightFactor: 0.1,
             alignment: Alignment.topLeft,

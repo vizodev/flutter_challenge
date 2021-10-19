@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_challenge/home/bottomAppBar.dart';
 import 'package:flutter_challenge/secondary_screen/shimer.dart';
 import '../api/api.dart';
 import 'dart:async';
@@ -48,14 +49,13 @@ class _SpecialistsSelectorState extends State<SpecialistsSelector> {
           .then((dermatologySpecialists) {
         setState(() {
           _specialistsList = dermatologySpecialists;
-          print(dermatologySpecialists);
         });
       });
     }
   }
 
   Widget build(BuildContext context) {
-    Timer(Duration(milliseconds: 300), () {
+    Timer(Duration(milliseconds: 100), () {
       _loading = true;
     });
     return Scaffold(
@@ -63,6 +63,13 @@ class _SpecialistsSelectorState extends State<SpecialistsSelector> {
         title: Text("SpecialistsList"),
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
+        actions: [
+          Spacer(
+            flex: 20,
+          ),
+          Icon(Icons.sort_outlined),
+          Spacer(),
+        ],
       ),
       body: _loading
           ? ListView.builder(
@@ -71,28 +78,85 @@ class _SpecialistsSelectorState extends State<SpecialistsSelector> {
               itemBuilder: (BuildContext contaxt, index) {
                 var specialists = _specialistsList[index];
 
+                // craetAlertDdialog(BuildContext context) {
+                //   return showDialog(
+                //       context: context,
+                //       builder: (context) {
+                //         return AlertDialog(
+                //           title: Text("title"),
+                //           content: Text("specialists"),
+                //           actions: <Widget>[
+                //             MaterialButton(
+                //                 elevation: 5.0,
+                //                 child: Text(
+                //                   "OK",
+                //                   style: TextStyle(color: Colors.blue),
+                //                 ),
+                //                 onPressed: () {
+                //                   Navigator.of(context).pop();
+                //                 })
+                //           ],
+                //         );
+                //       });
+                // }
+
                 return Card(
-                  child: Column(children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 17.0, horizontal: 7.0),
-                      child: ListTile(
-                        title: Text(
-                          specialists.name ?? "nachman",
-                        ),
-                        leading: Icon(
-                          Icons.account_circle,
-                          size: 54.0,
-                        ),
-                        subtitle: Text(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 17.0, horizontal: 7.0),
+                    child: ListTile(
+                      title: Text(
+                        specialists.name ?? "nachman",
+                      ),
+                      leading: Icon(
+                        Icons.account_circle,
+                        size: 54.0,
+                      ),
+                      subtitle: Column(children: [
+                        Text(
                           specialists.description ?? "nachman",
                         ),
-                      ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(top: 10.0),
+                                height: 40,
+                                width: 130,
+                                child: FloatingActionButton.extended(
+                                  onPressed: () {},
+                                  label: const Text(
+                                    'Chat',
+                                    style: TextStyle(fontSize: 17.0),
+                                  ),
+                                  backgroundColor: Colors.blue,
+                                ),
+                              ),
+                              Container(
+                                margin: const EdgeInsets.only(top: 10.0),
+                                height: 40,
+                                width: 130,
+                                child: FloatingActionButton.extended(
+                                  onPressed: () {
+                                    // craetAlertDdialog(context);
+                                  },
+                                  label: const Text(
+                                    'Call',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.grey),
+                                  ),
+                                  backgroundColor: Colors.white,
+                                ),
+                              ),
+                            ])
+                      ]),
                     ),
-                  ]),
+                  ),
                 );
               })
           : Simmer(),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }

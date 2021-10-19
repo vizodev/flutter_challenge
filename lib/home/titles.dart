@@ -21,8 +21,8 @@ class _TitlePageState extends State<TitlePage> {
   Widget build(BuildContext context) {
     var textColor = Color.fromRGBO(80, 76, 76, 1);
 
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return Container(
+      padding: const EdgeInsets.all(11.0),
       child: Align(
         alignment: Alignment.centerLeft,
         child: Column(
