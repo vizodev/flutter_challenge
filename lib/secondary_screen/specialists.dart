@@ -55,22 +55,25 @@ class _SpecialistsSelectorState extends State<SpecialistsSelector> {
   }
 
   Widget build(BuildContext context) {
-    Timer(Duration(milliseconds: 500), () {
+    Timer(Duration(milliseconds: 300), () {
       _loading = true;
     });
-    return _loading
-        ? Scaffold(
-            appBar: AppBar(
-              title: Text("SpecialistsList"),
-            ),
-            body: ListView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: _specialistsList.length,
-                itemBuilder: (BuildContext contaxt, index) {
-                  var specialists = _specialistsList[index];
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("SpecialistsList"),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
+      body: _loading
+          ? ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: _specialistsList.length,
+              itemBuilder: (BuildContext contaxt, index) {
+                var specialists = _specialistsList[index];
 
-                  return Card(
-                    child: Padding(
+                return Card(
+                  child: Column(children: [
+                    Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 17.0, horizontal: 7.0),
                       child: ListTile(
@@ -86,9 +89,10 @@ class _SpecialistsSelectorState extends State<SpecialistsSelector> {
                         ),
                       ),
                     ),
-                  );
-                }),
-          )
-        : Simmer();
+                  ]),
+                );
+              })
+          : Simmer(),
+    );
   }
 }

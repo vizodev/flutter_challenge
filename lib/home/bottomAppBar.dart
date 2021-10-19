@@ -19,24 +19,25 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      showUnselectedLabels: true,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: Icon(Icons.table_rows_outlined),
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.business),
-          label: 'Business',
+          icon: Icon(Icons.chat_bubble_outline),
+          label: 'Chats',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.school),
-          label: 'School',
+          icon: Icon(Icons.flash_on_outlined),
+          label: 'Notifications',
         ),
         BottomNavigationBarItem(
           icon: Icon(
-            Icons.settings,
+            Icons.menu_rounded,
           ),
-          label: 'Settings',
+          label: 'More',
         ),
       ],
       currentIndex: _selectedIndex,
